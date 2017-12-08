@@ -1,3 +1,3 @@
 # wxapi
 
-微信部分api封装
+封装了日常开发的utils
