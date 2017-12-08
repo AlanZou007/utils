@@ -1,4 +1,12 @@
-// import wx from "wx";
+import wx from "wx";
+
+export const is_IOS = typeof window !== 'undefined' && /(iPhone|iPad|iPod|iOS)/i.test(window.navigator.userAgent)
+export const is_Android = typeof window !== 'undefined' && /(Android)/i.test(window.navigator.userAgent)
+export const wechatUserAgent = typeof window !== 'undefined' && window.navigator.userAgent.match(/MicroMessenger\/([\d\.]+)/i)
+export const wechatInfo = {
+  version: wechatUserAgent ? wechatUserAgent[1] : null
+}
+
 export const setConfig = (config) => wx.config(config)
 export const ready = () => {
   return new Promise((resolve, reject) => {
