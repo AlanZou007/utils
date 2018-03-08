@@ -49,7 +49,6 @@ export function loadFromLocal(id, key, def) {
     return ret || def;
 };
 
-
 export function readCookie(name) {
     let nameEQ = `${cookieConfig.prefix}_${name}=`;
     let ca = document.cookie.split(';');
@@ -65,12 +64,10 @@ export function readCookie(name) {
     return null;
 }
 
-
 export function removeCookie(name) {
     let nameEQ = `${cookieConfig.prefix}_${name}`;
     saveCookie(nameEQ, "", -1);
 }
-
 
 export function urlParse() {
     const url = window.location.search;
@@ -89,7 +86,6 @@ export function urlParse() {
     }
     return obj;
 }
-
 
 export function fixedZero(val) {
     return val * 1 < 10 ? `0${val}` : val;
@@ -184,8 +180,7 @@ export function digitUppercase(n) {
     return s.replace(/(零.)*零元/, '元').replace(/(零.)+/g, '零').replace(/^整$/, '零元整');
 }
 
-
-function getRelation(str1, str2) {
+export function getRelation(str1, str2) {
     if (str1 === str2) {
         console.warn('Two path are equal!');  // eslint-disable-line
     }
@@ -199,7 +194,7 @@ function getRelation(str1, str2) {
     return 3;
 }
 
-function getRenderArr(routes) {
+export function getRenderArr(routes) {
     let renderArr = [];
     renderArr.push(routes[0]);
     for (let i = 1; i < routes.length; i += 1) {

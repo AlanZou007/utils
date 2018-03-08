@@ -1,19 +1,24 @@
 import wx from "wx";
 
-export const is_IOS = typeof window !== 'undefined' && /(iPhone|iPad|iPod|iOS)/i.test(window.navigator.userAgent)
-export const is_Android = typeof window !== 'undefined' && /(Android)/i.test(window.navigator.userAgent)
-export const wechatUserAgent = typeof window !== 'undefined' && window.navigator.userAgent.match(/MicroMessenger\/([\d\.]+)/i)
+export const is_IOS = typeof window !== 'undefined' && /(iPhone|iPad|iPod|iOS)/i.test(window.navigator.userAgent);
+
+export const is_Android = typeof window !== 'undefined' && /(Android)/i.test(window.navigator.userAgent);
+
+export const wechatUserAgent = typeof window !== 'undefined' && window.navigator.userAgent.match(/MicroMessenger\/([\d\.]+)/i);
+
 export const wechatInfo = {
   version: wechatUserAgent ? wechatUserAgent[1] : null
 }
 
 export const setConfig = (config) => wx.config(config)
+
 export const ready = () => {
   return new Promise((resolve, reject) => {
     wx.ready(resolve)
     wx.error(reject)
   })
 }
+
 export const setShare = (config) => {
   const params = {
     title: config.title || '',
@@ -32,12 +37,14 @@ export const setShare = (config) => {
     })) //分享到朋友圈
   })
 }
+
 export const previewImage = (thumb, list) => {
   wx.previewImage({
     current: thumb, // 当前显示图片的http链接
     urls: list // 需要预览的图片http链接列表
   })
 }
+
 export const pay = (params) => {
   return new Promise((resolve, reject) => {
     wx.chooseWXPay({
@@ -51,6 +58,7 @@ export const pay = (params) => {
     })
   })
 }
+
 export const getLocation = () => {
   return new Promise((resolve, reject) => {
     wx.ready(() => {
@@ -62,6 +70,7 @@ export const getLocation = () => {
     })
   })
 }
+
 export const openLocation = (params) => {
   wx.openLocation({
     latitude: parseFloat(params.lat), // 纬度，浮点数，范围为90 ~ -90
@@ -72,6 +81,7 @@ export const openLocation = (params) => {
     infoUrl: params.link || '' // 在查看位置界面底部显示的超链接,可点击跳转
   })
 }
+
 export const scanQRCode = (params = {}) => {
   return new Promise((resolve, reject) => {
     wx.scanQRCode({
@@ -82,6 +92,7 @@ export const scanQRCode = (params = {}) => {
     })
   })
 }
+
 export const chooseImage = (params = {}) => {
   return new Promise((resolve, reject) => {
     wx.chooseImage({
@@ -93,6 +104,7 @@ export const chooseImage = (params = {}) => {
     })
   })
 }
+
 export const uploadImage = (localId) => {
   return new Promise((resolve, reject) => {
     wx.uploadImage({
@@ -103,6 +115,7 @@ export const uploadImage = (localId) => {
     })
   })
 }
+
 const _uploadImage = (params, serverIds, resolve) => {
   const localId = params.localIds.shift()
   wx.uploadImage({
@@ -118,6 +131,7 @@ const _uploadImage = (params, serverIds, resolve) => {
     }
   })
 }
+
 export const uploadImages = (params = {}) => {
   return new Promise((resolve, reject) => {
     if (params.localIds.length == 0) {
@@ -127,6 +141,7 @@ export const uploadImages = (params = {}) => {
     }
   })
 }
+
 export const getLocalImgData = (localIds) => {
   if (window.__wxjs_is_wkwebview) {
     return Promise.all(localIds.map(n => new Promise((resolve, reject) => {
