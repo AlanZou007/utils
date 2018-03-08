@@ -7,3 +7,5 @@
 3. request.js 网络请求api
 4. wx-util.js 微信api
 5. dom.js 对dom的操作
+6. rem.js rem布局
+7. serviceWorker PWA
