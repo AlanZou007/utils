@@ -1,6 +1,6 @@
 import {cookieConfig} from "XX";
 
-const localName = 'clinic__' // 存入localStorage属性名
+const localName = 'xx__'  // 存入localStorage属性名
 
 export const is_IOS = typeof window !== 'undefined' && /(iPhone|iPad|iPod|iOS)/i.test(window.navigator.userAgent)
 export const is_Android = typeof window !== 'undefined' && /(Android)/i.test(window.navigator.userAgent)
@@ -48,13 +48,13 @@ export function loadFromLocal(id, key, def) {
     return ret || def;
 };
 
+
 export function readCookie(name) {
     let nameEQ = `${cookieConfig.prefix}_${name}=`;
     let ca = document.cookie.split(';');
     for (let i = 0; i < ca.length; i++) {
         let c = ca[i];
-        // eslint-disable-next-line
-        if (c.charAt(0) == ' ') {
+        if (c.charAt(0) == ' ') { // eslint-disable-line
             c = c.substring(1, c.length);
         }
         if (c.indexOf(nameEQ) === 0) {
@@ -64,10 +64,12 @@ export function readCookie(name) {
     return null;
 }
 
+
 export function removeCookie(name) {
     let nameEQ = `${cookieConfig.prefix}_${name}`;
     saveCookie(nameEQ, "", -1);
 }
+
 
 export function urlParse() {
     const url = window.location.search;
