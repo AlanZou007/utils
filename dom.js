@@ -1,3 +1,5 @@
+// testkmjkzx.kmwlyy.com/web/shop/wx/userAuthentication?orgId=DIDI&openId=110100192001016715&sex=1&tel=13751096562&groupId=test2&email=181029336%40qq.com&birthday=1984-09-15&trueName=maituwang&nickName=赵俊&city
+
 export function hasClass(el, className) {
     let reg = new RegExp('(^|\\s)' + className + '(\\s|$)')
     return reg.test(el.className)
