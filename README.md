@@ -10,3 +10,4 @@
 6. rem.js rem布局
 7. serviceWorker PWA
 8. jsBridge
+9. wxacode 生成小程序菊花码
