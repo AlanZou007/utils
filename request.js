@@ -1,6 +1,6 @@
-import fetch from 'dva/fetch';
-import { notification } from 'antd';
-import { routerRedux } from 'dva/router';
+import fetch from 'fetch';
+import { notification } from 'air-ui';
+import { routerRedux } from 'router';
 import store from '../index';
 
 const codeMessage = {
